@@ -12,7 +12,7 @@ public abstract class DriverManager {
     public WebDriver getDriver(){
         if(null == driver){
             startService();
-            stopService();
+            createDriver();
         }
         return driver;
     }
@@ -21,6 +21,7 @@ public abstract class DriverManager {
         if(null != driver){
             driver.quit();
             driver = null;
+            stopService();
         }
     }
 
